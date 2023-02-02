@@ -11,3 +11,10 @@ Install
 ```sh
 brew bundle --file ~/my-folder/Brewfile
 ```
+
+## asdf
+
+```sh
+cd ~
+asdf install
+````
