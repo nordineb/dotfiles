@@ -1,0 +1,38 @@
+[include]
+  path = ~/.gitconfig.local
+[diff]
+	tool = p4merge
+[difftool]
+  prompt = false
+[merge]
+	tool = p4merge
+[url "git@ssh.dev.azure.com:v3"]
+	insteadOf = https://dev.azure.com
+[core]
+	pager = delta
+	excludesfile = ~/.gitignore_global
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+  side-by-side = true
+	line-numbers = true
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[merge]
+  keepBackup = false
+	tool = p4merge
+[difftool "p4merge"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
+[mergetool "p4merge"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+  last = log -1 HEAD
+  uncommit = reset --soft HEAD^
